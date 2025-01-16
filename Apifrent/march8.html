@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квест на 8 марта</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #f08080;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .question {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff4500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f08080;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .section {
+                padding: 15px;
+            }
+
+            header nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+                font-size: 18px;
+            }
+
+            footer {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+
+            .section {
+                padding: 10px;
+            }
+
+            button {
+                padding: 15px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="feb23.html">Квест на 23 февраля</a></li>
+                <li><a href="march8.html">Квест на 8 марта</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="section">
+        <h1>Квест на 8 марта</h1>
+        <p>Пройдите этот квест, чтобы узнать больше о празднике 8 марта!</p>
+
+        <!-- Вопросы -->
+        <div class="question">
+            <h2>Вопрос 1: Как называется праздник 8 марта?</h2>
+            <form>
+                <input type="radio" id="q1a" name="q1" value="1">
+                <label for="q1a">День матери</label><br>
+                <input type="radio" id="q1b" name="q1" value="2">
+                <label for="q1b">Международный женский день</label><br>
+                <input type="radio" id="q1c" name="q1" value="3">
+                <label for="q1c">День весны</label><br>
+                <button type="button" onclick="checkAnswer('q1', '2', 'response1')">Ответить</button>
+            </form>
+            <p id="response1"></p>
+        </div>
+
+        <div class="question">
+            <h2>Вопрос 2: Кто является символом 8 марта?</h2>
+            <form>
+                <input type="radio" id="q2a" name="q2" value="1">
+                <label for="q2a">Лилия</label><br>
+                <input type="radio" id="q2b" name="q2" value="2">
+                <label for="q2b">Роза</label><br>
+                <input type="radio" id="q2c" name="q2" value="3">
+                <label for="q2c">Тюльпан</label><br>
+                <button type="button" onclick="checkAnswer('q2', '3', 'response2')">Ответить</button>
+            </form>
+            <p id="response2"></p>
+        </div>
+
+        <div class="question">
+            <h2>Вопрос 3: В каком месяце отмечают 8 марта?</h2>
+            <form>
+                <input type="radio" id="q3a" name="q3" value="1">
+                <label for="q3a">Февраль</label><br>
+                <input type="radio" id="q3b" name="q3" value="2">
+                <label for="q3b">Март</label><br>
+                <input type="radio" id="q3c" name="q3" value="3">
+                <label for="q3c">Апрель</label><br>
+                <button type="button" onclick="checkAnswer('q3', '2', 'response3')">Ответить</button>
+            </form>
+            <p id="response3"></p>
+        </div>
+
+        <div class="question">
+            <h2>Вопрос 4: Какие цветы чаще всего дарят на 8 марта?</h2>
+            <form>
+                <input type="radio" id="q4a" name="q4" value="1">
+                <label for="q4a">Розы</label><br>
+                <input type="radio" id="q4b" name="q4" value="2">
+                <label for="q4b">Тюльпаны</label><br>
+                <input type="radio" id="q4c" name="q4" value="3">
+                <label for="q4c">Мимозы</label><br>
+                <button type="button" onclick="checkAnswer('q4', '2', 'response4')">Ответить</button>
+            </form>
+            <p id="response4"></p>
+        </div>
+
+        <div class="question">
+            <h2>Вопрос 5: Какой весенний месяц самый длинный?</h2>
+            <form>
+                <input type="radio" id="q5a" name="q5" value="1">
+                <label for="q5a">Март</label><br>
+                <input type="radio" id="q5b" name="q5" value="2">
+                <label for="q5b">Апрель</label><br>
+                <input type="radio" id="q5c" name="q5" value="3">
+                <label for="q5c">Май</label><br>
+                <button type="button" onclick="checkAnswer('q5', '3', 'response5')">Ответить</button>
+            </form>
+            <p id="response5"></p>
+        </div>
+
+        <footer>
+            <p>© 2025 Класс 4 "З". Все права защищены.</p>
+        </footer>
+    </section>
+
+    <script>
+        function checkAnswer(questionName, correctValue, responseId) {
+            const answers = document.getElementsByName(questionName);
+            let selectedValue = null;
+
+            // Проверяем, какой ответ выбран
+            answers.forEach((answer) => {
+                if (answer.checked) {
+                    selectedValue = answer.value;
+                }
+            });
+
+            // Отображаем результат
+            const response = document.getElementById(responseId);
+            if (selectedValue === correctValue) {
+                response.textContent = "Правильно! Молодец!";
+                response.style.color = "green";
+            } else {
+                response.textContent = "Неверно. Попробуй еще раз.";
+                response.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

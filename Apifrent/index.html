@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школьный сайт класса 4 "З"</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Общие стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        nav ul li a:hover {
+            background-color: #45a049;
+            border-radius: 5px;
+        }
+        .section {
+            padding: 20px;
+            margin: 0 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .section h1 {
+            font-size: 24px;
+            color: #333;
+        }
+        .quest {
+            margin-bottom: 15px;
+        }
+        .quest h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .quest p {
+            font-size: 16px;
+        }
+        .quest button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .quest button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+            nav ul {
+                text-align: left;
+                padding-left: 20px;
+            }
+            nav ul li {
+                display: block;
+                margin: 5px 0;
+            }
+            .section {
+                padding: 15px;
+                margin: 10px 0;
+            }
+            .section h1 {
+                font-size: 20px;
+            }
+            .quest h2 {
+                font-size: 18px;
+            }
+            .quest p {
+                font-size: 14px;
+            }
+            .quest button {
+                width: 100%;
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul li a {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+            .section h1 {
+                font-size: 18px;
+            }
+            .quest h2 {
+                font-size: 16px;
+            }
+            .quest button {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Главное меню -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">О классе</a></li>
+                <li><a href="#quests">Квесты</a></li>
+                <li><a href="#news">Новости</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- О классе -->
+    <section id="about" class="section">
+        <h1>О классе 4 "З"</h1>
+        <p>Мы — дружный и активный класс, всегда готовый к новым достижениям и приключениям.</p>
+        <p>Вместе мы не боимся трудностей и с радостью преодолеваем все преграды!</p>
+    </section>
+
+    <!-- Квесты -->
+    <section id="quests" class="section">
+        <h1>Квесты</h1>
+        <div class="quest">
+            <h2>Квест на 23 февраля</h2>
+            <p>Пройдите квест, чтобы узнать больше о 23 февраля!</p>
+            <button onclick="window.location.href='feb23.html'">Начать Квест</button>
+        </div>
+        <div class="quest">
+            <h2>Квест на 8 марта</h2>
+            <p>Праздник 8 марта — это не только весна, но и важный день для всех девочек!</p>
+            <button onclick="window.location.href='march8.html'">Начать Квест</button>
+        </div>
+    </section>
+
+    <!-- Новости -->
+    <section id="news" class="section">
+        <h1>Новости</h1>
+        <p>Следите за новыми событиями и важными событиями в классе!</p>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery" class="section">
+        <h1>Галерея</h1>
+        <div class="gallery">
+            <button onclick="window.location.href='galary.html'">Галерея класса</button>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="section">
+        <h1>Контакты</h1>
+        <p>Наши контактные данные:</p>
+        <ul>
+            <li>Учитель: Колесникова Александра Викторовна</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Класс 4 "З". Все права защищены.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

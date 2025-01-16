@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            padding: 20px;
+        }
+        .gallery-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Гарантирует, что изображение не будет искажено */
+            display: block;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                padding: 10px;
+            }
+            header nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            .gallery-item {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item {
+                padding: 5px;
+            }
+            header nav ul li a {
+                font-size: 14px;
+            }
+            .lightbox img {
+                max-width: 80%;
+                max-height: 70%;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="gallery-item" onclick="openLightbox('711da42e-0e90-4a76-aa78-fa76063c5ca9.JPG')">
+        <img src="711da42e-0e90-4a76-aa78-fa76063c5ca9.JPG" alt="Фото 1">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('e6b519e0-2ab8-447f-9b03-8d762f802390.JPG')">
+        <img src="e6b519e0-2ab8-447f-9b03-8d762f802390.JPG" alt="Фото 2">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('e4608f27-7764-4021-940a-87693986c305.JPG')">
+        <img src="e4608f27-7764-4021-940a-87693986c305.JPG" alt="Фото 3">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('935311e1-6b14-40fa-9aef-7f6d945e284a.JPG')">
+        <img src="935311e1-6b14-40fa-9aef-7f6d945e284a.JPG" alt="Фото 4">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('a06982c7-7d55-460b-9573-c35d9dd03cc7.JPG')">
+        <img src="a06982c7-7d55-460b-9573-c35d9dd03cc7.JPG" alt="Фото 5">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('d6416361-4b87-4adb-b047-3b04b6106df0.JPG')">
+        <img src="d6416361-4b87-4adb-b047-3b04b6106df0.JPG" alt="Фото 6">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('03ce2ee8-adfd-4d37-8a4a-7e2dcbba094f.JPG')">
+        <img src="03ce2ee8-adfd-4d37-8a4a-7e2dcbba094f.JPG" alt="Фото 7">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('45fd8298-18e6-4cb7-8491-520c9ef0a4a3.JPG')">
+        <img src="45fd8298-18e6-4cb7-8491-520c9ef0a4a3.JPG" alt="Фото 8">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('3f0bf28f-e4e0-4f8b-8a0b-9b76ce973043.JPG')">
+        <img src="3f0bf28f-e4e0-4f8b-8a0b-9b76ce973043.JPG" alt="Фото 9">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('302a42c3-3792-4ca1-aac1-b65129f538b5.JPG')">
+        <img src="302a42c3-3792-4ca1-aac1-b65129f538b5.JPG" alt="Фото 10">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('90530e41-43f4-439a-ad50-a123bcaf8403.JPG')">
+        <img src="90530e41-43f4-439a-ad50-a123bcaf8403.JPG" alt="Фото 10">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('711da42e-0e90-4a76-aa78-fa76063c5ca9.JPG')">
+        <img src="711da42e-0e90-4a76-aa78-fa76063c5ca9.JPG" alt="Фото 10">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('95e6bc3d-958f-4d39-82da-85e153f4e7a1.JPG')">
+        <img src="95e6bc3d-958f-4d39-82da-85e153f4e7a1.JPG" alt="Фото 10">
+    </div>
+    <div class="gallery-item" onclick="openLightbox('99dcfd9d-60f2-4893-9401-b2a92f300779.JPG')">
+        <img src="99dcfd9d-60f2-4893-9401-b2a92f300779.JPG" alt="Фото 10">
+    </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+    <img id="lightboxImage" src="" alt="Фото в полном размере">
+</div>
+
+<script>
+    function openLightbox(imageSrc) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        lightboxImage.src = imageSrc;
+
+        // Проверяем ориентацию изображения
+        const img = new Image();
+        img.onload = function() {
+            // Если изображение более широкое, то устанавливаем его высоту авто
+            if (img.width > img.height) {
+                lightboxImage.style.maxWidth = "90%";
+                lightboxImage.style.maxHeight = "80%";
+            } else {
+                lightboxImage.style.maxWidth = "80%";
+                lightboxImage.style.maxHeight = "90%";
+            }
+        };
+        img.src = imageSrc;
+
+        lightbox.classList.add('open');
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('open');
+    }
+</script>
+
+</body>
+</html>

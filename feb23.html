@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квест на 23 февраля</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .question {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .answer-input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:disabled {
+            background-color: #ccc;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Квест "Операция: Победа"</h1>
+    <p>Пройди все этапы, чтобы найти Звезду Победы!</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="feb23.html">Квест на 23 февраля</a></li>
+            <li><a href="march8.html">Квест на 8 марта</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="content">
+    <!-- Этапы квеста -->
+    <div class="question" id="stage1">
+        <h2>Этап 1: Шифр Победы</h2>
+        <p>Какой праздник отмечают 23 февраля в России?</p>
+        <input type="text" class="answer-input" id="answer1" placeholder="Введи ответ">
+        <button class="button" onclick="checkAnswer(1, 'День защитника Отечества', 2)">Проверить</button>
+        <p id="result1"></p>
+    </div>
+
+    <div class="question" id="stage2" style="display: none;">
+        <h2>Этап 2: Мозговая атака</h2>
+        <p>Сколько сражений проиграл Суворов?</p>
+        <input type="text" class="answer-input" id="answer2" placeholder="Введи ответ">
+        <button class="button" onclick="checkAnswer(2, 'Ни одного', 3)">Проверить</button>
+        <p id="result2"></p>
+    </div>
+
+    <div class="question" id="stage3" style="display: none;">
+        <h2>Этап 3: Исторические знания</h2>
+        <p>Какой головной убор носили красноармейцы?</p>
+        <input type="text" class="answer-input" id="answer3" placeholder="Введи ответ">
+        <button class="button" onclick="checkAnswer(3, 'Будёновка', 4)">Проверить</button>
+        <p id="result3"></p>
+    </div>
+
+    <div class="question" id="stage4" style="display: none;">
+        <h2>Этап 4: Математика для спецназа</h2>
+        <p>Если на фронте 5 отрядов, и каждый отряд состоит из 12 человек, сколько всего бойцов в отрядах?</p>
+        <input type="text" class="answer-input" id="answer4" placeholder="Введи ответ">
+        <button class="button" onclick="checkAnswer(4, '60', 5)">Проверить</button>
+        <p id="result4"></p>
+    </div>
+
+    <div class="question" id="stage5" style="display: none;">
+        <h2>Этап 5: Найди врага</h2>
+        <p>Кто был главным противником Советского Союза в Великой Отечественной войне?</p>
+        <input type="text" class="answer-input" id="answer5" placeholder="Введи ответ">
+        <button class="button" onclick="checkAnswer(5, 'Германия', 6)">Проверить</button>
+        <p id="result5"></p>
+    </div>
+
+    <div class="question" id="stage6" style="display: none;">
+        <h2>Финал: Звезда Победы</h2>
+        <p class="success">Поздравляем! Ты прошел все этапы и нашел Звезду Победы!</p>
+    </div>
+</div>
+
+<script>
+    function checkAnswer(stage, correctAnswer, nextStage) {
+        const answer = document.getElementById(`answer${stage}`).value.toLowerCase().trim();
+        const result = document.getElementById(`result${stage}`);
+        if (answer === correctAnswer.toLowerCase()) {
+            result.textContent = 'Правильно! Перейдем к следующему этапу.';
+            document.getElementById(`stage${stage}`).style.display = 'none';
+            if (nextStage) {
+                document.getElementById(`stage${nextStage}`).style.display = 'block';
+            }
+        } else {
+            result.textContent = 'Неверно, попробуй еще раз.';
+        }
+    }
+</script>
+
+</body>
+</html>
